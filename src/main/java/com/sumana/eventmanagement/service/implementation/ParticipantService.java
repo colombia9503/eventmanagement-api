@@ -36,7 +36,7 @@ public class ParticipantService implements ParticipantServiceI {
 		
 		Participant participant = participantRepository.findOne(id);
 		if (participant != null) {
-			if (participant.getCheckedIn()) {
+			if (!participant.getCheckedIn()) {
 				throw new NotCheckedInException();
 			}
 			participant.setCheckedIn(false);
